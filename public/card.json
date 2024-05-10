@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Physics",
+        "Class": "College",
+        "subject": "Physics",
+        "publisher": "Dhaka University Press",
+        "image_url": "https://i.ibb.co/PhxVwj7/physics.jpg",
+        "description": "This comprehensive textbook covers fundamental concepts of physics including mechanics, electricity, magnetism, thermodynamics, and modern physics. It provides clear explanations, illustrative examples, and practice problems to help college-level students develop a strong understanding of physics principles."
+    },
+    {
+        "name": "Chemistry",
+        "Class": "College",
+        "subject": "Chemistry",
+        "publisher": "Dhaka University Press",
+        "image_url": "https://i.ibb.co/jvFxm47/chemistry.jpg",
+        "description": "Delve into the world of chemistry with this extensive textbook covering topics such as atomic structure, chemical bonding, chemical reactions, stoichiometry, organic chemistry, and biochemistry. It features detailed explanations, chemical illustrations, and practical applications to help college-level students grasp complex chemical concepts."
+    },
+    {
+        "name": "Biology",
+        "Class": "College",
+        "subject": "Biology",
+        "publisher": "Dhaka University Press",
+        "image_url": "https://i.ibb.co/N6Z8ZcG/biology.jpg",
+        "description": "Explore the diversity of life on Earth with this in-depth biology textbook. It covers cellular biology, genetics, evolution, ecology, physiology, and anatomy, providing students with a comprehensive understanding of biological concepts. With engaging illustrations, real-life examples, and interactive activities, this book makes learning biology enjoyable and informative for college-level students."
+    },
+    {
+        "name": "Mathematics",
+        "Class": "College",
+        "subject": "Mathematics",
+        "publisher": "Dhaka University Press",
+        "image_url": "https://i.ibb.co/sv4FCV3/Math.jpg",
+        "description": "Master mathematical concepts and techniques with this rigorous textbook covering algebra, geometry, trigonometry, calculus, and statistics. It offers clear explanations, step-by-step problem-solving strategies, and plenty of exercises to help college-level students develop mathematical proficiency and problem-solving skills essential for success in various fields."
+    },
+    {
+        "name": "Architecture",
+        "Class": "University",
+        "subject": "Architecture",
+        "publisher": "Architecture Press",
+        "image_url": "https://i.ibb.co/t8WDCR0/architecture.jpg",
+        "description": "Explore the principles and practices of architecture with this comprehensive textbook. It covers architectural history, design principles, structural systems, building materials, and sustainable design concepts. With case studies, design projects, and practical applications, this book prepares students for a career in architecture."
+      },
+      {
+        "name": "Algorithm",
+        "Class": "University",
+        "subject": "Algorithm",
+        "publisher": "Algorithm Press",
+        "image_url": "https://i.ibb.co/Qfm6wM5/algorithm.jpg",
+        "description": "Master the fundamentals of algorithms and data structures with this essential textbook. It covers algorithm analysis, sorting and searching algorithms, data structures, graph algorithms, and dynamic programming. With real-world examples, coding exercises, and algorithmic problem-solving techniques, this book is indispensable for computer science students."
+      }
+]
