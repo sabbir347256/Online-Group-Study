@@ -5,7 +5,6 @@ import Feature from "./Feature";
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
             <Banner></Banner>
             <Feature></Feature>
         </div>

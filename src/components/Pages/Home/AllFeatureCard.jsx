@@ -3,14 +3,15 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types'
 const AllFeatureCard = ({data}) => {
-    const {name,Class,subject,publisher,image_url,description} = data;
+    const {name,Class,image_url} = data;
 
     return (
         <div className='max-w-6xl mx-auto my-10'>
             <Card sx={{ maxWidth: 345 }}>
-                <div className='h-[300px] p-4'>
-                    <img className='h-72 w-96 border-red-400 border-2 rounded-lg' src={image_url} alt="" />
+                <div className='h-[300px]'>
+                    <img className='h-72 w-96' src={image_url} alt="" />
                 </div>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -32,5 +33,9 @@ const AllFeatureCard = ({data}) => {
         </div>
     );
 };
+
+AllFeatureCard.propTypes ={
+    data : PropTypes.object
+}
 
 export default AllFeatureCard;

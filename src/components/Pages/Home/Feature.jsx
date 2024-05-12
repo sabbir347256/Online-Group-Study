@@ -9,7 +9,7 @@ const Feature = () => {
             .then(data => setFeatureData(data))
     }, [])
     return (
-        <div className="featureBg grid grid-cols-3 pt-10">
+        <div className="featureBg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10">
             {
                 featureData.map(data => <AllFeatureCard key={data._id} data={data}></AllFeatureCard>)
             }

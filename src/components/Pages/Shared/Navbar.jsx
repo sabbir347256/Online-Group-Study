@@ -1,15 +1,30 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../../image/logo.png'
+import { useContext } from 'react';
+import { AuthProvider } from '../../../AuthProvider/AuthContext';
 
 const Navbar = () => {
+    const {user,logOut} = useContext(AuthProvider);
 
     const navlinks = <>
         <li className='font-semibold text-white'><NavLink to='/'>Home</NavLink></li>
-        <li className='font-semibold text-white'><NavLink to='/assignment'>Assignments</NavLink></li>
-        <li className='font-semibold text-white'><NavLink to='/createassignment'>Create Assignment</NavLink></li>
-        <li className='font-semibold text-white'><NavLink to='/pendingassignment'>Pending Assignment</NavLink></li>
+        <li className='font-semibold text-white'><NavLink to='/allassignment'>Assignments</NavLink></li>
         <li className='font-semibold text-white'><NavLink to='/about'>About</NavLink></li>
+        {
+            user ?<li className='font-semibold text-white'><NavLink to='/createassignment'>Create Assignment</NavLink></li> : 'hidden'
+        }
+        {
+            user ? <li className='font-semibold text-white'><NavLink to='/pendingassignment'>Pending Assignment</NavLink></li> : 'hidden'
+        }
+        
     </>
+
+    const handleSignOut = () =>{
+        logOut()
+        .then()
+        .catch()
+    }
+
 
     return (
         <div className="navbar nunito navbarBg bg-gradient-to-r from-green-500 via-purple-500 to-pink-500 shadow-2xl">
@@ -31,18 +46,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="dropdown dropdown-end mr-3">
+                {
+                    user ?<div className="dropdown dropdown-end mr-3">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
                     </div>
                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                        <li><a>My Attempted Assignments</a></li>
+                        <NavLink to='/myassignment'><li><a>My Attempted Assignments</a></li></NavLink>
                         <li><button>Logout</button></li>
                     </ul>
-                </div>
-                <a className="btn">Button</a>
+                </div> : 'hidden'
+                }
+                {
+                    user ? <NavLink to='/login' onClick={handleSignOut}><a className="btn">log out</a></NavLink> : <NavLink to='/login'><a className="btn">Login</a></NavLink>
+                }
             </div>
         </div>
     );
