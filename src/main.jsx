@@ -18,6 +18,7 @@ import ViewAssignmentDetails from './components/ViewAssignmentDetails/ViewAssign
 import Register from './components/Register/Register';
 import PendingAssignment from './components/PendingAssignment/PendingAssignment';
 import MarkPage from './components/MarkPage/MarkPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/createassignment',
-        element : <CreateAssignment></CreateAssignment>
+        element : <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
       },
       {
         path : '/allassignment',
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/myassignment',
-        element : <MyAssignment></MyAssignment>
+        element : <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>
       },
       {
         path: '/updateassignment/:id',
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/pendingassignment',
-        element : <PendingAssignment></PendingAssignment>,
+        element : <PrivateRoute><PendingAssignment></PendingAssignment></PrivateRoute>
       },
       {
         path : '/markpage/:id',

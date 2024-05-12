@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const Assignment = ({ data }) => {
     // const { user } = useContext(AuthProvider);
     const [mylist, setMylist] = useState([]);
-    const { _id, title, mark, imageurl,inputField } = data;
+    const { _id, title, mark, imageurl, inputField } = data;
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -26,14 +26,14 @@ const Assignment = ({ data }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
+                        setMylist(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            setMylist(data);
-                            const remaining = mylist.filter(spot => spot._id !== _id);
+                            const remaining = mylist.filter(assignment => assignment._id !== _id);
                             setMylist(remaining);
                         }
                     })
@@ -42,8 +42,9 @@ const Assignment = ({ data }) => {
         });
     }
 
+
     return (
-        <div className='assignmentBg '>
+        <div>
             <div className='max-w-6xl mx-auto py-10 nunito'>
                 <Card sx={{ maxWidth: 345 }}>
                     <div className='h-[300px]'>

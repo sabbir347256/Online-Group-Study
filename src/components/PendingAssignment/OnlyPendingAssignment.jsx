@@ -36,7 +36,9 @@ const OnlyPendingAssignment = ({ data }) => {
                         <td className='font-bold'>
                             {email}
                         </td>
-                        <td className='font-bold'>Pending</td>
+                        <td className='font-bold'>{
+                            num >0 ? <h2 className='text-green-600'>Complete</h2> : <h2>Pending</h2>
+                        }</td>
                         <th>
                             <NavLink to={`/markpage/${_id}`}><button className="btn btn-ghost bg-yellow-300">Give Mark</button></NavLink>
                         </th>

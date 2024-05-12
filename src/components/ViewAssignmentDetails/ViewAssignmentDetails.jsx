@@ -58,8 +58,8 @@ const ViewAssignmentDetails = () => {
                                 <h2 className="font-bold text-lg">Assignment Name</h2>
                                 <input className="p-2 rounded-lg border-2 border-black" type="text" name="title" placeholder="Assignment Title" />
                                 <br />
-                                <h2 className="font-bold text-lg">Mark</h2>
-                                <input className="p-2 rounded-lg border-2 border-black" type="number" name="num" placeholder="Mark here" />
+                                <h2 className="font-bold text-lg">Mark(Please Do not fill up this field, this field fill up  by examiner)</h2>
+                                <input className="p-2 rounded-lg border-2 border-black" type="number" name="num" defaultValue='0' placeholder="Mark here" />
                                 <br />
                                 <h2 className="font-bold text-lg">Your Name :</h2>
                                 <input className="p-2 rounded-lg border-2 border-black"  type="text" name="name" placeholder="Your Name here" id="" />

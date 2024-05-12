@@ -1,16 +1,17 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 import PropTypes from 'prop-types'
 export const AuthProvider = createContext();
 const AuthContext = ({children}) => {
     const [user,setUser] = useState();
-    // const [loading,setLoading] = useState(true);
+    const [loading,setLoading] = useState(true);
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth,currentUser =>{
             console.log('Current user is stay hser',currentUser);
             setUser(currentUser);
+            setLoading(false);
         });
         return () =>{
             unSubscribe();
@@ -18,11 +19,17 @@ const AuthContext = ({children}) => {
     },[])
 
     const createUser = (email,password) =>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     }
 
     const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const googleLogin = (provider) => {
+        setLoading(true)
+        return signInWithPopup(auth, provider);
     }
 
     const logOut =() =>{
@@ -35,6 +42,8 @@ const AuthContext = ({children}) => {
         createUser,
         signIn,
         logOut,
+        googleLogin,
+        loading
     
         
         // assignment
