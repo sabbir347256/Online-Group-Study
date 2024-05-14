@@ -19,6 +19,7 @@ import Register from './components/Register/Register';
 import PendingAssignment from './components/PendingAssignment/PendingAssignment';
 import MarkPage from './components/MarkPage/MarkPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Contact from './components/Pages/ContactUs/Contact';
 
 const router = createBrowserRouter([
   {
@@ -52,13 +53,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateassignment/:id',
-        element: <UpdateAssignment></UpdateAssignment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/updateAssignment/${params.id}`)
+        element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://online-group-study-server-site.vercel.app/updateAssignment/${params.id}`)
       },
       {
         path : '/assignmentDetails/:id',
-        element : <ViewAssignmentDetails></ViewAssignmentDetails>,
-        loader : () => fetch('http://localhost:5000/assignmentDetails')
+        element : <PrivateRoute><ViewAssignmentDetails></ViewAssignmentDetails></PrivateRoute>,
+        loader : () => fetch('https://online-group-study-server-site.vercel.app/assignmentDetails')
       },
       {
         path : '/pendingassignment',
@@ -67,7 +68,11 @@ const router = createBrowserRouter([
       {
         path : '/markpage/:id',
         element : <MarkPage></MarkPage>,
-        loader : ({params}) => fetch(`http://localhost:5000/submitAssignment/${params.id}`)
+        loader : ({params}) => fetch(`https://online-group-study-server-site.vercel.app/submitAssignment/${params.id}`)
+      },
+      {
+        path : '/contact',
+        element : <Contact></Contact>
       }
     ]
   },

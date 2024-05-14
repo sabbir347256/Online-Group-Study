@@ -6,17 +6,16 @@ const MyAssignment = () => {
     const{user} = useContext(AuthProvider);
     const[myassignment,setMyAssignment] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myassignment`)
+        fetch(`https://online-group-study-server-site.vercel.app/myassignment?email=${user?.email}`,{credentials : 'include'})
         .then(res => res.json())
         .then(data => {
             const filterData = data?.filter(singleData => singleData?.email == user?.email)
             setMyAssignment(filterData);
         })
     },[user?.email])
-    console.log(myassignment)
 
     return (
-        <div>
+        <div className="min-h-screen">
             {
                 myassignment.map(data => <Myassignment2 key={data._id} data={data}></Myassignment2>)
             }

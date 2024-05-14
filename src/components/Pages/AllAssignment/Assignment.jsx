@@ -2,16 +2,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types'
-import { useState } from 'react';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
-const Assignment = ({ data }) => {
-    // const { user } = useContext(AuthProvider);
-    const [mylist, setMylist] = useState([]);
-    const { _id, title, mark, imageurl, inputField } = data;
+import { AuthProvider } from '../../../AuthProvider/AuthContext';
+const Assignment = ({ data, getData }) => {
+    const { user } = useContext(AuthProvider);
+    const { email, _id, title, mark, imageurl, inputField } = data;
 
     const handleDelete = (_id) => {
-        Swal.fire({
+        if (email !== user.email) return alert('not allowed');
+
+         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
@@ -21,25 +23,23 @@ const Assignment = ({ data }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteassignment/${_id}`, {
+                fetch(`https://online-group-study-server-site.vercel.app/deleteassignment/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        setMylist(data);
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            const remaining = mylist.filter(assignment => assignment._id !== _id);
-                            setMylist(remaining);
                         }
+                        getData();
                     })
 
             }
-        });
+        })
     }
 
 
@@ -72,7 +72,8 @@ const Assignment = ({ data }) => {
     );
 };
 Assignment.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    getData: PropTypes.object
 }
 
 export default Assignment;

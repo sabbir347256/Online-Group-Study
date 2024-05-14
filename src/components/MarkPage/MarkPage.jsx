@@ -1,9 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MarkPage = () => {
     const loadData = useLoaderData();
     const { doc, textarea } = loadData;
+    const navigate = useNavigate();
+
 
     const handleMark = e =>{
         e.preventDefault();
@@ -11,7 +13,7 @@ const MarkPage = () => {
         const mark = form.mark.value;
         const feedback = form.feedback.value;
         const user = {mark,feedback};
-        fetch(`http://localhost:5000/updateMark/${loadData._id}`, {
+        fetch(`https://online-group-study-server-site.vercel.app/updateMark/${loadData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -24,35 +26,33 @@ const MarkPage = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Update Successfully",
+                        title: "Mark Give Done",
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // navigate(location?.state ? location.state : '/assignment')
+                    navigate(location?.state ? location.state : '/pendingassignment')
                 }
             })
-        // console.log(user)
     }
 
-    // console.log(loadData)
     return (
-        <div className="mt-10">
-            <form onSubmit={handleMark} className="flex">
-                <div className="relative flex">
-                    <iframe src={doc} width="640" height="380" allow="autoplay"></iframe>
-                    <h2 className="relative left-40"><span className="text-lg font-bold">Examinee Note</span> <input type="text" defaultValue={textarea} /></h2>
+        <div className="mt-10 my-10">
+            <form onSubmit={handleMark} className="flex flex-col lg:flex-row">
+                <div className="relative flex flex-col lg:flex-row">
+                    <iframe src={doc} className="w-80 ml-7 md:ml-10 lg:ml-0 h-60  md:w-[680px] md:h-[380px]" allow="autoplay"></iframe>
+                    <h2 className="relative ml-11 md:ml-48 lg:ml-0 lg:left-40 mt-5 md:mt-7 lg:mt-0"><span className="text-lg font-bold">Examinee Note</span> <br /> <input type="text" defaultValue={textarea} /></h2>
                 </div>
-                <div className="flex items-center relative right-28 mt-16 ">
+                <div className="flex flex-col lg:flex-row items-center relative lg:right-28 mt-16 ">
                     <div>
                         <h2 className="font-bold text-lg">Give Mark</h2>
-                        <input className="p-2 border-2 border-gray-300 rounded-md" type="number" name="mark" id="" placeholder="mark here" />
+                        <input className="p-2 w-72 md:w-96 lg:w-40 border-2 border-gray-300 rounded-lg" type="number" name="mark" id="" placeholder="mark here" />
                     </div>
-                    <div className="ml-16">
+                    <div className="lg:ml-16">
                         <h2 className="font-bold text-lg">Feedback </h2>
-                        <input className="p-2 border-2 border-gray-300 rounded-md" type="text" name="feedback" id="" placeholder="feedback" />
+                        <input className="p-2 w-72 md:w-96 lg:w-40 border-2 border-gray-300 rounded-lg" type="text" name="feedback" id="" placeholder="feedback" />
                     </div>
                 </div>
-                <input className="btn btn-ghost bg-yellow-200 relative right-[575px] top-80 w-[460px]" type="submit" value="Submit" />
+                <input className="btn btn-ghost bg-yellow-200 relative  my-5 ml-11 md:ml-48 lg:ml-0  lg:right-[490px]  lg:top-80 w-72 md:w-[387px]" type="submit" value="Submit" />
             </form>
         </div>
     );

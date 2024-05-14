@@ -1,34 +1,33 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types'
+import { useContext } from 'react';
+import { AuthProvider } from '../../../AuthProvider/AuthContext';
 const AllFeatureCard = ({data}) => {
-    const {name,Class,image_url} = data;
+    const{theme} = useContext(AuthProvider);
+    const {description,name,Class,image_url} = data;
 
     return (
-        <div className='max-w-6xl mx-auto my-10'>
+        <div className='max-w-6xl mx-auto my-10 b'>
             <Card sx={{ maxWidth: 345 }}>
                 <div className='h-[300px]'>
                     <img className='h-72 w-96' src={image_url} alt="" />
                 </div>
-                <CardContent>
+                <CardContent className={theme === 'light' ?' border-2  border-white' : 'bg-black text-white border-2 border-white'}>
                     <Typography gutterBottom variant="h5" component="div">
                         {name}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div">
                         {Class}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Typography variant="body2" color="text.secondary" className=''>
+                        <h2 className={theme === 'light'?'font-bold text-black' :'font-bold text-white'}>Description:</h2>
+                        {
+                                <p className={theme === 'light'?'text block':'text-white'}>{description.slice(0,200)}</p>
+                        }
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
             </Card>
         </div>
     );

@@ -1,26 +1,20 @@
-// import { useLoaderData } from "react-router-dom";
 
-import {useEffect, useState } from "react";
-// import { AuthProvider } from "../../AuthProvider/AuthContext";
+import { useContext, useEffect, useState } from "react";
 import OnlyPendingAssignment from "./OnlyPendingAssignment";
+import { AuthProvider } from "../../AuthProvider/AuthContext";
 
 const PendingAssignment = () => {
-    // const { user } = useContext(AuthProvider);
+    const { user ,theme} = useContext(AuthProvider);
     const [pendingAssignment, setpendingAssignment] = useState([]);
-    // const [isloading,setIsLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/submitAssignment')
+        fetch(`https://online-group-study-server-site.vercel.app/submitAssignment?email=${user.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setpendingAssignment(data)
-                // const filterData = data?.filter(singleData => singleData?.email == user?.email)
-                // setpendingAssignment(filterData);
-                // setIsLoading(false);
             })
     }, [])
-    // console.log(pendingAssignment)
     return (
-        <div>
+        <div className={theme === 'light' ?"bg-gray-100 min-h-screen":"bg-gray-700 min-h-screen"}>
             {
                 pendingAssignment.map(data => <OnlyPendingAssignment key={data._id} data={data}></OnlyPendingAssignment>)
             }

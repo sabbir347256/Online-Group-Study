@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,6 +14,13 @@
 .raleway{
   font-family: "Raleway", sans-serif;
 }
+.inter{
+  font-family: "Inter Tight", sans-serif;
+}
+.libre-font{
+  font-family: "Libre Baskerville", serif;
+}
+
 
 .bannerBg {
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.10) 100%, rgba(19, 19, 24, 0.00) 100%), url(./image/bannerbg2.JPG);
@@ -47,4 +56,22 @@
 .loginBg{
   background-image: linear-gradient(90deg, rgba(70, 62, 62, 0.8) 100%, rgba(87, 33, 84, 0) 100%), url(./image/loginbg.jpg);
   background-attachment: fixed;
+}
+.contactbg{
+  background-image: url(./image/contactimage.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.contactBg{
+  background-image: url(./image/contactus.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.registerBg{
+  background-image: url(./image/register.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

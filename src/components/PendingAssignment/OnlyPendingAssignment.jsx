@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthProvider } from '../../AuthProvider/AuthContext';
 const OnlyPendingAssignment = ({ data }) => {
+    const {theme} = useContext(AuthProvider);
     const {_id, title, num, name, email } = data;
     return (
-        <div className="overflow-x-auto">
+        <div className={theme === 'light' ?"overflow-x-auto ml-0 lg:ml-16" :"overflow-x-auto text-white bg-gray-700 ml-0 lg:ml-16"}>
             <table className="table mt-5">
                 {/* head */}
                 <thead>

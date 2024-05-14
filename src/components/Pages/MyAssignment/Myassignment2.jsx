@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 const Myassignment2 = ({ data }) => {
     const { title, num, feedback, name, email } = data;
     return (
-        <div className='mt-5'>
+        <div className='mt-5 overflow-x-auto'>
             <table className="table">
                 {/* head */}
                 <thead>
@@ -41,6 +41,7 @@ const Myassignment2 = ({ data }) => {
                         <td className='font-bold'>
                             {feedback}
                         </td>
+                        
                     </tr>
                 </tbody>
                 {/* foot */}

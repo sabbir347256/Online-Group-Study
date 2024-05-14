@@ -5,22 +5,31 @@ import { AuthProvider } from "../../../AuthProvider/AuthContext";
 const AllAssignment = () => {
     const { loading } = useContext(AuthProvider);
     const [assignment, setAssignment] = useState([]);
-    const [value, setvalue] = useState("easy");
+    const [value, setvalue] = useState("Easy");
 
-
-    useEffect(() => {
-        fetch('http://localhost:5000/assignment')
+    const getData = () => {
+        fetch('https://online-group-study-server-site.vercel.app/assignment')
             .then(res => res.json())
-            .then(data => setAssignment(data))
-    }, [])
+            .then(data => {
+                if(value === 'All') {
+                    setAssignment(data);
+                }else if(value === "Easy") {
+                    setAssignment(data.filter((a) => a.inputField === 'Easy'));
+                } else if (value === "Medium") {
+                    setAssignment(data.filter((b) => b.inputField === 'Medium'));
+                } else if (value === "Hard") {
+                    setAssignment(data.filter((c) => c.inputField === 'Hard'));
+                } else {
+                    setAssignment(data);
+                }
+
+            })
+    }
+
 
     useEffect(() => {
-        if (value === "Easy") {
-            setAssignment(assignment.sort((a, b) => b.inputField - a.inputField));
-        } else if (value === "Hard") {
-            setAssignment(assignment.sort((a, b) => a.inputField - b.inputField));
-        }
-    }, [value, assignment]);
+        getData();
+    }, [value])
 
 
     if (loading) {
@@ -33,13 +42,15 @@ const AllAssignment = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 text-base font-semibold outline-none"
                     onChange={(e) => setvalue(e.target.value)}
                 >
+                    <option value="All">All </option>
                     <option value="Easy">Easy </option>
+                    <option value="Medium">Medium </option>
                     <option value="Hard">Hard </option>
                 </select>
             </div>
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            <div className=" grid ml-8 md:ml-8 lg:ml-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
                 {
-                    assignment.map(data => <Assignment key={data._id} data={data}></Assignment>)
+                    assignment.map(data => <Assignment key={data._id} data={data} getData={getData}></Assignment>)
                 }
             </div>
         </div>

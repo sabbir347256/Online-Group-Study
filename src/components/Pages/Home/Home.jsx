@@ -1,5 +1,5 @@
-import Navbar from "../Shared/Navbar";
 import Banner from "./Banner";
+import FaqSection from "./FaqSection";
 import Feature from "./Feature";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Feature></Feature>
+            <FaqSection></FaqSection>
         </div>
     );
 };
