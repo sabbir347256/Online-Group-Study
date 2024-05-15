@@ -63,7 +63,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <label className="cursor-pointer grid place-items-center mx-6 relative top-14 md:top-0 lg:top-0 right-10 md:right-0 lg:right-0 md:left-0 lg:left-0 z-10 ">
+                <label className="cursor-pointer grid place-items-center mx-6 relative left-7 md:left-0 lg:left-0   z-10 ">
                     <input
                         onChange={toggleTheme}
                         type="checkbox" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
