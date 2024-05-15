@@ -64,11 +64,6 @@ const AuthContext = ({children}) => {
         return signInWithPopup(auth, provider);
     }
 
-    const gitHubLogin = (githubProvider) =>{
-        setLoading(true)
-        return signInWithPopup(auth,githubProvider);
-    }
-
     const logOut =() =>{
         return signOut(auth);
     }
@@ -82,7 +77,6 @@ const AuthContext = ({children}) => {
         googleLogin,
         toggleTheme,
         theme,
-        gitHubLogin,
         loading
     
         

@@ -3,7 +3,7 @@ import Assignment from "./Assignment";
 import { AuthProvider } from "../../../AuthProvider/AuthContext";
 
 const AllAssignment = () => {
-    const { loading } = useContext(AuthProvider);
+    const { loading ,theme} = useContext(AuthProvider);
     const [assignment, setAssignment] = useState([]);
     const [value, setvalue] = useState("Easy");
 
@@ -36,7 +36,7 @@ const AllAssignment = () => {
         return <p className="text-red-600 text-center"><span className="loading loading-infinity loading-lg"></span></p>;
     }
     return (
-        <div className='assignmentBg min-h-screen'>
+        <div className={theme === 'light' ? 'assignmentBg min-h-screen' : 'bg-gray-800 min-h-screen'}>
             <div className="flex justify-center items-center py-14">
                 <select
                     className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 text-base font-semibold outline-none"

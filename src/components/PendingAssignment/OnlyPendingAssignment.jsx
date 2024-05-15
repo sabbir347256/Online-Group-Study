@@ -7,7 +7,8 @@ const OnlyPendingAssignment = ({ data }) => {
     const {_id, title, num, name, email } = data;
     return (
         <div className={theme === 'light' ?"overflow-x-auto ml-0 lg:ml-16" :"overflow-x-auto text-white bg-gray-700 ml-0 lg:ml-16"}>
-            <table className="table mt-5">
+            {
+                num === '' ?<table className="table mt-5">
                 {/* head */}
                 <thead>
                     <tr>
@@ -49,7 +50,8 @@ const OnlyPendingAssignment = ({ data }) => {
                 </tbody>
                 {/* foot */}
 
-            </table>
+            </table>: ''
+            }
         </div>
     );
 };

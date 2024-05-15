@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import logo from '../../../image/logo.png'
+import { AuthProvider } from '../../../AuthProvider/AuthContext';
 const Footer = () => {
+    const {theme} = useContext(AuthProvider);
     return (
-        <footer className="p-10 bg-[#002379] text-white grid grid-cols-5">
+        <footer className={theme === 'light' ? "p-10 bg-[#002379] text-white grid grid-cols-5": "p-10 bg-[#121213] text-white grid grid-cols-5"}>
             <div className='col-span-2'>
                 <img className=' rounded-full' src={logo} alt="" />
                 <p className="text-3xl font-bold">E-Group Study</p>

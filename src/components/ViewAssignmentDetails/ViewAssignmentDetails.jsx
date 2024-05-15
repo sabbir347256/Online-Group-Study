@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { AuthProvider } from "../../AuthProvider/AuthContext";
+import Swal from "sweetalert2";
 
 const ViewAssignmentDetails = () => {
     const { user,theme } = useContext(AuthProvider)
@@ -27,7 +28,16 @@ const ViewAssignmentDetails = () => {
             },
             body: JSON.stringify(user1)
         })
-            .then(res => res.json())
+            .then(res => {
+                res.json();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Submit Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
             .catch(error => {
 
             })
@@ -55,7 +65,7 @@ const ViewAssignmentDetails = () => {
                                     <input className="p-2 rounded-lg border-2 border-black" type="text" name="title" placeholder="Assignment Title" />
                                     <br />
                                     <h2 className="font-bold text-lg">Mark(Please Do not fill up this field, this field fill up  by examiner)</h2>
-                                    <input className="p-2 rounded-lg border-2 border-black" type="number" name="num" defaultValue='0' placeholder="Mark here" />
+                                    <input className="p-2 rounded-lg border-2 border-black" type="number" name="num"  placeholder="Mark here" />
                                     <br />
                                     <h2 className="font-bold text-lg">Your Name :</h2>
                                     <input className="p-2 rounded-lg border-2 border-black" type="text" name="name" placeholder="Your Name here" id="" />

@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthProvider } from "../../../AuthProvider/AuthContext";
 
 const CreateAssignment = () => {
-    const { user } = useContext(AuthProvider);
+    const { user,theme } = useContext(AuthProvider);
     const [startDate, setStartDate] = useState(new Date());
 
     const handleSubmit = e => {
@@ -34,8 +34,8 @@ const CreateAssignment = () => {
 
     }
     return (
-        <div className=' min-h-screen raleway bg-gray-100'>
-            <h2 className="text-5xl font-extrabold relative text-center top-10  text-[#1e1a4b]">Create Your Assignment</h2>
+        <div className={theme === 'light' ?' min-h-screen raleway bg-gray-100' :' min-h-screen raleway bg-black'}>
+            <h2 className={theme === 'light'? "text-5xl font-extrabold relative text-center top-10  text-[#1e1a4b]":"text-5xl font-extrabold relative text-center top-10  text-[#FFFFFF]"}>Create Your Assignment</h2>
             <form onSubmit={handleSubmit} className="top-10 md:top-10 lg:top-0 p-10 lg:p-16 lg:pl-20 lg:left-20 relative">
                 <div className="flex flex-col md:flex-row lg:flex-row border-2 w-[300px] md:w-[690px] lg:w-[1000px] rounded-lg bg-white justify-center  pb-32  lg:pb-28 pt-10 lg:pt-28">
                     <div className="mr-4 relative top-3">
