@@ -26,13 +26,6 @@ const Navbar = () => {
         {
             user ? '' : <li className='font-semibold text-black'><NavLink to='/register'>Register</NavLink></li>
         }
-        {/* {
-            user ? <li className='font-semibold text-black'><NavLink to='/login'>Login</NavLink></li> :<li className='font-semibold text-black'><NavLink to='/register'>Register</NavLink></li>
-        } */}
-        {/* {
-            user ? <NavLink to='/login' onClick={handleSignOut}><a className="font-semibold text-black">Login</a></NavLink> : <NavLink to='/register'><a className="font-semibold text-black ">Register</a></NavLink>
-        } */}
-
     </>
 
 
@@ -81,7 +74,7 @@ const Navbar = () => {
                     user && <div className="dropdown dropdown-end mr-3">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img alt="" src={user ? user.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                <img alt="" src={user ? user?.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
                             </div>
                         </div>
                         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
