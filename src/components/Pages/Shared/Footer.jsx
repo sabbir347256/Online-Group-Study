@@ -1,7 +1,7 @@
 import logo from '../../../image/logo.png'
 const Footer = () => {
     return (
-        <footer className="p-10 bg-base-200 text-base-content grid grid-cols-5">
+        <footer className="p-10 bg-[#002379] text-white grid grid-cols-5">
             <div className='col-span-2'>
                 <img className=' rounded-full' src={logo} alt="" />
                 <p className="text-3xl font-bold">E-Group Study</p>

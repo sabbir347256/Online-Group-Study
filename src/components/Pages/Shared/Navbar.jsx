@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar nunito border-b  ">
+        <div className="navbar nunito border-b w-full z-50 fixed ">
             <div className="navbar-start ">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,7 +55,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className='rounded-full h-10' src={logo} alt="" />
-                <a className="btn btn-ghost text-xl font-extrabold">E-GroupStudy</a>
+                <a className="btn btn-ghost ml-3 text-xl font-extrabold bg-gray-50 text-black">E-GroupStudy</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 bg-gray-50 rounded-lg">
