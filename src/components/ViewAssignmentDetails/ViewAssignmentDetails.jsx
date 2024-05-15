@@ -57,24 +57,24 @@ const ViewAssignmentDetails = () => {
                         <h2 className="my-5"><span className="text-red-600">Difficulty Level : </span><span className="font-bold">{inputField}</span></h2>
                         <h2><span className="text-red-600">Submitted Date : </span><span className="font-bold">{calender}</span></h2>
                         <h2 className="my-5"><span className="text-red-600">User Email : </span><span className="font-bold">{email}</span></h2>
-                        <button className="btn bg-[#F97300] text-white relative left-10 md:left-0 lg:left-0" onClick={() => document.getElementById('my_modal_1').showModal()}>Take Assignment</button>
+                        <button className="btn bg-[#F97300] text-white mb-16 md:mb-0 lg:mb-0 relative left-10 md:left-0 lg:left-0" onClick={() => document.getElementById('my_modal_1').showModal()}>Take Assignment</button>
                         <dialog id="my_modal_1" className="modal">
-                            <div className="modal-box h-96 bg-gray-200 pl-32">
+                            <div className="modal-box h-96 bg-gray-200 md:pl-32">
                                 <form onSubmit={handleSubmit}>
                                     <h2 className="font-bold text-lg">Assignment Name</h2>
-                                    <input className="p-2 rounded-lg border-2 border-black" type="text" name="title" placeholder="Assignment Title" />
+                                    <input className="p-2 rounded-lg border-2 border-black" type="text" name="title" placeholder="Assignment Title" required />
                                     <br />
                                     <h2 className="font-bold text-lg">Mark(Please Do not fill up this field, this field fill up  by examiner)</h2>
                                     <input className="p-2 rounded-lg border-2 border-black" type="number" name="num"  placeholder="Mark here" />
                                     <br />
                                     <h2 className="font-bold text-lg">Your Name :</h2>
-                                    <input className="p-2 rounded-lg border-2 border-black" type="text" name="name" placeholder="Your Name here" id="" />
+                                    <input className="p-2 rounded-lg border-2 border-black" type="text" name="name" placeholder="Your Name here" id="" required />
                                     <br />
                                     <h2 className="font-bold text-lg">Submit Your Doc Link</h2>
-                                    <input className="p-2 rounded-lg border-2 border-black" type="url" name="doc" placeholder="doc link" />
+                                    <input className="p-2 rounded-lg border-2 border-black" type="url" name="doc" placeholder="doc link" required />
                                     <br />
                                     <h2 className="font-bold text-lg">Note</h2>
-                                    <input type="text" name="textarea" placeholder="textarea" className="h-16 w-[198px] border-2 border-black rounded-lg" />
+                                    <input type="text" name="textarea" placeholder="textarea" className="h-16 w-[198px] border-2 border-black rounded-lg" required />
                                     <br />
                                     <button className="btn w-48 ml-1 btn-primary mt-4"> <input type="submit" value="Submit" /></button>
                                 </form>
