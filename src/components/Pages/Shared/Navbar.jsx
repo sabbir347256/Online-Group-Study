@@ -5,7 +5,7 @@ import { AuthProvider } from '../../../AuthProvider/AuthContext';
 import Swal from 'sweetalert2';
 
 const Navbar = () => {
-    const { user, logOut, toggleTheme } = useContext(AuthProvider);
+    const { user, logOut, toggleTheme,theme } = useContext(AuthProvider);
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar nunito border-b w-full z-50 fixed ">
+        <div className={theme === 'light'?"navbar nunito border-b w-full z-50 fixed bg-gray-50 ":"navbar nunito border-b w-full z-50 fixed bg-black "}>
             <div className="navbar-start ">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,8 +54,8 @@ const Navbar = () => {
                         {navlinks}
                     </ul>
                 </div>
-                <img className='rounded-full h-10' src={logo} alt="" />
-                <a className="btn btn-ghost ml-3 text-xl font-extrabold bg-gray-50 text-black">E-GroupStudy</a>
+                <img className='rounded-full h-10 relative right-3 md:right-0 lg:right-0' src={logo} alt="" />
+                <a className="btn btn-ghost relative right-2 md:right-0 lg:right-0 text-xl font-extrabold bg-gray-50 text-black">E-GroupStudy</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 bg-gray-50 rounded-lg">
