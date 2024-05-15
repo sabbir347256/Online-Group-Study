@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -6,14 +7,14 @@ const UpdateAssignment = () => {
     const navigate = useNavigate();
 
 
-    const handleUpdate = e =>{
+    const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;
         const title = form.title.value;
         const mark = form.mark.value;
         const imageurl = form.imageurl.value;
         const inputField = form.inputField.value;
-        const user ={title, mark, imageurl, inputField};
+        const user = { title, mark, imageurl, inputField };
         fetch(`https://online-group-study-server-site.vercel.app/updateAssignment/${update._id}`, {
             method: 'PUT',
             headers: {
@@ -21,7 +22,7 @@ const UpdateAssignment = () => {
             },
             body: JSON.stringify(user)
         })
-        .then(res => res.json())
+            .then(res => res.json())
             .then(data => {
                 if (data.acknowledged === true) {
                     Swal.fire({
@@ -35,9 +36,12 @@ const UpdateAssignment = () => {
                 }
             })
     }
-    
+
     return (
         <div className=' min-h-screen raleway bg-gray-100'>
+            <Helmet>
+                <title>E-Group Study - UpdateAssignment</title>
+            </Helmet>
             <h2 className="text-5xl font-extrabold relative text-center top-10  text-[#1e1a4b]">Update  Assignment</h2>
             <form onSubmit={handleUpdate} className="top-10 md:top-10 lg:top-0 p-10 lg:p-16 lg:pl-20    ml-5 md:ml-0 lg:ml-0 lg:left-20 relative">
                 <div className="flex flex-col md:flex-row lg:flex-row border-2 w-[300px] md:w-[690px] lg:w-[1000px] rounded-lg bg-white justify-center  pb-32  lg:pb-28 pt-10 lg:pt-28">

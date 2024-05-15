@@ -3,13 +3,17 @@ import { IoPersonSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { RiMessage2Fill } from "react-icons/ri";
 import { AuthProvider } from "../../../AuthProvider/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
-    const {theme} = useContext(AuthProvider);
+    const { theme } = useContext(AuthProvider);
     return (
-        <div className={theme === 'light' ?"min-h-screen contactbg libre-font pt-20 md:pl-20":"min-h-screen contactBg libre-font pt-20 md:pl-20"}>
+        <div className={theme === 'light' ? "min-h-screen contactbg libre-font pt-20 md:pl-20" : "min-h-screen contactBg libre-font pt-20 md:pl-20"}>
+            <Helmet>
+                <title>E-Group Study - Contact Page</title>
+            </Helmet>
             <div>
-                <h2 className={theme === 'light' ?"text-[#002379] font-extrabold pl-4 md:pl-9 text-6xl" : "text-white font-extrabold pl-4 md:pl-9 text-6xl"}>Contact Us</h2>
+                <h2 className={theme === 'light' ? "text-[#002379] font-extrabold pl-4 md:pl-9 text-6xl" : "text-white font-extrabold pl-4 md:pl-9 text-6xl"}>Contact Us</h2>
                 <div className="pt-10 pl-6">
                     <div className="flex items-center font-bold ">
                         <div>

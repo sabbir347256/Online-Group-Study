@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { AuthProvider } from "../../AuthProvider/AuthContext";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ViewAssignmentDetails = () => {
-    const { user,theme } = useContext(AuthProvider)
+    const { user, theme } = useContext(AuthProvider)
     const detailsData = useLoaderData();
     const navigate = useNavigate();
     const { id } = useParams();
@@ -46,7 +47,10 @@ const ViewAssignmentDetails = () => {
     }
 
     return (
-        <div className={theme === 'light' ? "bg-gray-100 min-h-screen libre-font": 'bg-gray-700 text-white'}>
+        <div className={theme === 'light' ? "bg-gray-100 min-h-screen libre-font" : 'bg-gray-700 text-white'}>
+            <Helmet>
+                <title>E-Group Study - ViewAssignmentDetails</title>
+            </Helmet>
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-center text-4xl font-extrabold pt-10">Assignment Details Information</h2>
                 <div className="grid  md:grid-cols-5 lg:grid-cols-5 pt-16 px-5 ml-8">
@@ -65,7 +69,7 @@ const ViewAssignmentDetails = () => {
                                     <input className="p-2 rounded-lg border-2 border-black" type="text" name="title" placeholder="Assignment Title" required />
                                     <br />
                                     <h2 className="font-bold text-lg">Mark(Please Do not fill up this field, this field fill up  by examiner)</h2>
-                                    <input className="p-2 rounded-lg border-2 border-black" type="number" name="num"  placeholder="Mark here" />
+                                    <input className="p-2 rounded-lg border-2 border-black" type="number" name="num" placeholder="Mark here" />
                                     <br />
                                     <h2 className="font-bold text-lg">Your Name :</h2>
                                     <input className="p-2 rounded-lg border-2 border-black" type="text" name="name" placeholder="Your Name here" id="" required />

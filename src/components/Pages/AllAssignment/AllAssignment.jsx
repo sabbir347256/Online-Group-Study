@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Assignment from "./Assignment";
 import { AuthProvider } from "../../../AuthProvider/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const AllAssignment = () => {
     const { loading ,theme} = useContext(AuthProvider);
@@ -37,6 +38,9 @@ const AllAssignment = () => {
     }
     return (
         <div className={theme === 'light' ? 'assignmentBg min-h-screen' : 'bg-gray-800 min-h-screen'}>
+            <Helmet>
+                <title>E-Group Study || Assignment</title>
+            </Helmet>
             <div className="flex justify-center items-center py-14">
                 <select
                     className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 text-base font-semibold outline-none"

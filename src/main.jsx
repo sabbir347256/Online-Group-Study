@@ -20,6 +20,7 @@ import PendingAssignment from './components/PendingAssignment/PendingAssignment'
 import MarkPage from './components/MarkPage/MarkPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Contact from './components/Pages/ContactUs/Contact';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -36,20 +37,20 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path : '/register',
-        element : <Register></Register>
+        path: '/register',
+        element: <Register></Register>
       },
       {
-        path : '/createassignment',
-        element : <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
+        path: '/createassignment',
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
       },
       {
-        path : '/allassignment',
-        element : <AllAssignment></AllAssignment>
+        path: '/allassignment',
+        element: <AllAssignment></AllAssignment>
       },
       {
-        path : '/myassignment',
-        element : <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>
+        path: '/myassignment',
+        element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>
       },
       {
         path: '/updateassignment/:id',
@@ -57,22 +58,22 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://online-group-study-server-site.vercel.app/updateAssignment/${params.id}`)
       },
       {
-        path : '/assignmentDetails/:id',
-        element : <PrivateRoute><ViewAssignmentDetails></ViewAssignmentDetails></PrivateRoute>,
-        loader : () => fetch('https://online-group-study-server-site.vercel.app/assignmentDetails')
+        path: '/assignmentDetails/:id',
+        element: <PrivateRoute><ViewAssignmentDetails></ViewAssignmentDetails></PrivateRoute>,
+        loader: () => fetch('https://online-group-study-server-site.vercel.app/assignmentDetails')
       },
       {
-        path : '/pendingassignment',
-        element : <PrivateRoute><PendingAssignment></PendingAssignment></PrivateRoute>
+        path: '/pendingassignment',
+        element: <PrivateRoute><PendingAssignment></PendingAssignment></PrivateRoute>
       },
       {
-        path : '/markpage/:id',
-        element : <MarkPage></MarkPage>,
-        loader : ({params}) => fetch(`https://online-group-study-server-site.vercel.app/submitAssignment/${params.id}`)
+        path: '/markpage/:id',
+        element: <MarkPage></MarkPage>,
+        loader: ({ params }) => fetch(`https://online-group-study-server-site.vercel.app/submitAssignment/${params.id}`)
       },
       {
-        path : '/contact',
-        element : <Contact></Contact>
+        path: '/contact',
+        element: <Contact></Contact>
       }
     ]
   },
@@ -81,7 +82,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthContext>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthContext>
   </React.StrictMode>,
 )

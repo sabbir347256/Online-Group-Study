@@ -2,8 +2,9 @@ import { useContext, useState } from 'react';
 import { AuthProvider } from '../../../AuthProvider/AuthContext';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import {GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -58,6 +59,9 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200 loginBg shadow-2xl shadow-black">
+            <Helmet>
+                <title>E-Group Study - Login</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <h2 className='text-3xl font-bold mx-auto pt-5'>Login Your Account</h2>
