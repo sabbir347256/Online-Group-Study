@@ -1,31 +1,33 @@
 import logo from '../../../image/logo.png'
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
-            <aside>
+        <footer className="p-10 bg-base-200 text-base-content grid grid-cols-5">
+            <div className='col-span-2'>
                 <img className=' rounded-full' src={logo} alt="" />
                 <p className="text-3xl font-bold">E-Group Study</p>
-            </aside>
-            <nav>
-                <h6 className="footer-title">Services</h6>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
-            </nav>
-            <nav>
-                <h6 className="footer-title">Company</h6>
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
-            </nav>
-            <nav>
-                <h6 className="footer-title">Legal</h6>
-                <a className="link link-hover">Terms of use</a>
-                <a className="link link-hover">Privacy policy</a>
-                <a className="link link-hover">Cookie policy</a>
-            </nav>
+            </div>
+            <div className='flex justify-between col-span-3'>
+                <div className='flex flex-col '>
+                    <h6 className="footer-title">Services</h6>
+                    <a className="link link-hover">Branding</a>
+                    <a className="link link-hover">Design</a>
+                    <a className="link link-hover">Marketing</a>
+                    <a className="link link-hover">Advertisement</a>
+                </div>
+                <div className='flex flex-col ml-3'>
+                    <h6 className="footer-title">Company</h6>
+                    <a className="link link-hover">About us</a>
+                    <a className="link link-hover">Contact</a>
+                    <a className="link link-hover">Jobs</a>
+                    <a className="link link-hover">Press kit</a>
+                </div>
+                <div className='flex flex-col pt-36 md:pt-0 relative right-32 md:right-0'>
+                    <h6 className="footer-title">Legal</h6>
+                    <a className="link link-hover">Terms of use</a>
+                    <a className="link link-hover">Privacy policy</a>
+                    <a className="link link-hover">Cookie policy</a>
+                </div>
+            </div>
         </footer>
     );
 };
