@@ -62,7 +62,7 @@ const Navbar = () => {
                     {navlinks}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="">
                 <label className="cursor-pointer grid place-items-center mx-6 relative left-7 md:left-0 lg:left-0   z-10 ">
                     <input
                         onChange={toggleTheme}
