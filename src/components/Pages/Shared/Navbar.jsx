@@ -73,7 +73,7 @@ const Navbar = () => {
                 {
                     user && <div className="dropdown dropdown-end mr-3">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 ">
+                            <div className="w-10 rounded-full">
                                 <img alt="" src={user ? user?.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
                             </div>
                         </div>
