@@ -1,5 +1,7 @@
-## 🔗 Links live site :
+## 🔗 Links live site : https://online-group-study-67ed0.web.app/ 
+## 🔗 Links live site : https://online-group-study-67ed0.firebaseapp.com/
 
+Assignment Category : 0001
 
 PROJECT Name :  
 # E-GroupStudy 

@@ -12,6 +12,9 @@ const Feature = () => {
     }, [])
     return (
         <div className={theme === 'light' ? 'featureBg' : 'bg-black mt-44 md:mt-0 lg:mt-0'}>
+            <div className={theme === 'light' ?"bg-gray-300 text-center py-28 lg:py-10":"bg-gray-300 text-center py-28 lg:py-10 text-black"}>
+                <h2 className="text-5xl font-extrabold">Assignment Feature</h2>
+            </div>
             <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10">
                 {
                     featureData.map(data => <AllFeatureCard key={data._id} data={data}></AllFeatureCard>)
