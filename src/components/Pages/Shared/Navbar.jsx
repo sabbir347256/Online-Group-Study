@@ -86,7 +86,7 @@ const Navbar = () => {
 
             </div>
             {
-                success && <p>{success}</p>
+                success && <p>{}</p>
             }
         </div>
     );
