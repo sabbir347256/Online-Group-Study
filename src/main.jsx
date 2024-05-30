@@ -21,6 +21,7 @@ import MarkPage from './components/MarkPage/MarkPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Contact from './components/Pages/ContactUs/Contact';
 import { HelmetProvider } from 'react-helmet-async';
+import Subscription from './components/Pages/Subscription/Subscription';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/myassignment',
         element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>
+      },
+      {
+        path : 'subscription',
+        element : <Subscription></Subscription>
       },
       {
         path: '/updateassignment/:id',

@@ -19,6 +19,9 @@ const Navbar = () => {
         {
             user && <li className='font-semibold text-black'><NavLink to='/pendingassignment'>Pending Assignment</NavLink></li>
         }
+        {
+            user && <li className='font-extrabold text-black'><NavLink to='/subscription'>Subscription</NavLink></li>
+        }
         <li className='font-semibold text-black'><NavLink to='/contact'>Contact Us</NavLink></li>
         {
             user ? '' : <li className='font-semibold text-black'><NavLink to='/login'>Login</NavLink></li>

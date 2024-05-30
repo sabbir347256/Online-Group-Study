@@ -32,7 +32,6 @@ const AllAssignment = () => {
         getData();
     }, [value])
 
-
     if (loading) {
         return <p className="text-red-600 text-center"><span className="loading loading-infinity loading-lg"></span></p>;
     }
